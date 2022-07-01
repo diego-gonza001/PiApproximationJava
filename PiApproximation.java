@@ -18,14 +18,36 @@ public class PiApproximation { // start PiApproximation class
         // int to hold amount of points user wants to use to approximate Pi
         int totalPoints;
 
-        // prompt user for how many points they want to use to approximate Pi
-        System.out.print("How many points do you want to use to approximate Pi?");
+        // boolean if user wants to repeat the approximation
+        boolean goAgain = true;
 
-        // assign inputted amount into *points* and convert to int
-        totalPoints = (int) input.nextDouble();
+        do {
 
-        // pass *totalPoints* to calculate() and return Pi estimate
-        System.out.println(calculate(totalPoints));
+            // prompt user for how many points they want to use to approximate Pi
+            System.out.print("Total points to approximate Pi: ");
+
+            // assign inputted amount into *points* and convert to int
+            totalPoints = (int) input.nextDouble();
+
+            // pass *totalPoints* to calculate() and return Pi estimate
+            System.out.println(calculate(totalPoints));
+
+            // ask user if they would like to try another estimate
+            System.out.print("Would you like to go again? (enter 'y' for yes, 'n' for no): ");
+
+            // consume the '/n'
+            input.nextLine();
+
+            // declare and define string that holds user input to compare below
+            String inputString = input.nextLine();
+
+            // convert 'y' or 'n' to boolean value of true/false in *goAgain*
+            if (inputString.equalsIgnoreCase("y")) {
+                goAgain = true;
+            } else {
+                goAgain = false;
+            }
+        } while (goAgain == true); // end do-while loop
 
     } // end main()
 
@@ -56,6 +78,7 @@ public class PiApproximation { // start PiApproximation class
 
             // determain if point is inside circle of radius using the Pythagorean Theorum
             if (Math.pow(allPoints[i].getX(), 2) + Math.pow(allPoints[i].getY(), 2) <= Math.pow(RADIUS, 2)) {
+
                 // incriment counter of total points inside circle
                 insideCircle++;
             }
