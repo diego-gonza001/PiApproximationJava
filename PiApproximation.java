@@ -1,3 +1,4 @@
+package PiApproximationJava;
 
 //import awt package which contains Point class
 import java.awt.*;
@@ -58,9 +59,6 @@ public class PiApproximation { // start PiApproximation class
                 // incriment counter of total points inside circle
                 insideCircle++;
             }
-
-            // print out point location with class toString()
-            // System.out.println(allPoints[i]);
 
         }
 
